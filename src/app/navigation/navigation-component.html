@@ -1,0 +1,12 @@
+<mat-sidenav-container>
+    <mat-sidenav #nav position="start" mode="side">
+        Navigation
+        <a (click)="logout()">Logout</a>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <button type="button" (click)="nav.toggle()">
+            @if(nav.opened) {<span><=</span>}
+            @else {<span>=></span>}
+        </button>
+    </mat-sidenav-content>
+</mat-sidenav-container>

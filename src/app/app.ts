@@ -1,12 +1,15 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, OnInit, signal } from '@angular/core';
+import { RouterOutlet } from "@angular/router";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styles: ['.mat-h1 {text-align: center}'],
+  imports: [RouterOutlet]
 })
-export class App {
-  protected readonly title = signal('evergreen');
+export class App implements OnInit {
+  constructor() {}
+
+  ngOnInit(): void {}
+    // beforeunload 
 }

@@ -1,0 +1,13 @@
+#container {
+    display: flex;
+    justify-content: center;
+}
+
+#login-card {
+    width: 500px;
+
+}
+
+mat-card-header {
+    padding-bottom: 8px;
+}
