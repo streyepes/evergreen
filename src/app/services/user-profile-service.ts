@@ -6,6 +6,7 @@ import { Injectable } from "@angular/core";
 export class UserProfileService {
     private _email: string = '';
     private _userData: any = null;
+    private _isLoggedIn = false;
 
     get email(): string {
         return this._email;
@@ -15,8 +16,13 @@ export class UserProfileService {
         return this._userData;
     }
 
+    get isLoggedIn(): boolean {
+        return this._isLoggedIn;
+    }
+
+    // add properExit flag, is true until logout is called
+   
     loadUserProfile(email: string): boolean {
-        console.log(email);
         let userData = localStorage.getItem(email);
 
         if (userData === null) return false;
@@ -24,6 +30,7 @@ export class UserProfileService {
         this._email = email;
         this._userData = JSON.parse(userData);
         this._userData.lastLogin = Date.now()
+        this._isLoggedIn = true;
         
         return true;
     }
@@ -33,12 +40,14 @@ export class UserProfileService {
         this._email = email;
         this._userData = newProfileData;
         this.saveProfile();
+        this._isLoggedIn = true;
     }
 
     unloadUserProfile(save = true) {
         if (save) this.saveProfile();
         this._email = '';
         this._userData = null;
+        this._isLoggedIn = false;
     }
 
     saveProfile() {

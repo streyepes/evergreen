@@ -1,15 +1,18 @@
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, HostListener, OnInit, signal } from '@angular/core';
 import { RouterOutlet } from "@angular/router";
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.html',
-  styles: ['.mat-h1 {text-align: center}'],
+  template: `<router-outlet></router-outlet>`,
   imports: [RouterOutlet]
 })
 export class App implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
-    // beforeunload 
+
+  @HostListener('window:beforeunload', ['$event'])
+  onClose(event: BeforeUnloadEvent) {
+    // TODO final save here
+  }
 }

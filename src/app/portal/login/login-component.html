@@ -32,7 +32,7 @@
                 }
             </mat-form-field>
         </mat-card-content>
-        <mat-card-actions align="end">
+        <mat-card-actions [align]="'end'">
             @if (newUser()) 
             {
                 <button (click)="createUserProfile()" matButton matTooltip="Create profile for {{email}}">Create</button>

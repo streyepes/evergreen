@@ -6,8 +6,7 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatTooltipModule } from "@angular/material/tooltip";
 import { MatCardModule } from "@angular/material/card";
 import { MatButtonModule } from "@angular/material/button";
-import { UserProfileService } from "../services/user-profile-service";
-import { Router } from "@angular/router";
+import { UserProfileService } from "../../services/user-profile-service";
 
 @Component({
     selector: 'app-login',
@@ -28,15 +27,12 @@ export class LoginComponent {
     errorMessage = signal('');
     newUser = signal(false);
     private userProfileService = inject(UserProfileService);
-    private router = inject(Router);
 
     searchUser(proceed?: boolean | null) {
         if (!proceed) return;
 
         if (!this.userProfileService.loadUserProfile(this.email))
             this.newUser.set(true);
-        else
-            this.router.navigate(['/navigation']);
     }
 
     resetFlags() {
@@ -45,6 +41,5 @@ export class LoginComponent {
 
     createUserProfile() {
         this.userProfileService.createUserProfile(this.email);
-        this.router.navigate(['/navigation']);
     }
 }

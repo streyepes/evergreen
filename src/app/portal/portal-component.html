@@ -1,0 +1,8 @@
+<app-header [email]="userProfileService.email" [title]="title" [version]="versionInfo"></app-header>
+
+@if (userProfileService.isLoggedIn) {
+    <app-navigation></app-navigation>
+}
+@else {
+    <app-login></app-login>
+}

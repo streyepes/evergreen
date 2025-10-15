@@ -1,0 +1,11 @@
+{
+    "title": "Evergreen",
+    "version": "1.0.0-alpha",
+    "lastModified": "10/14/25",
+    "applications": [
+        {"name": "Hardware Builder", "icon": "build", "tooltip": "", "isActive": "false"},
+        {"name": "Asset Manager", "icon": "room", "tooltip": "", "isActive": "false"},
+        {"name": "Ticket Tracker", "icon": "pending_actions", "tooltip": "", "isActive": "false"},
+        {"name": "Tagalong", "icon": "new_label", "tooltip": "", "isActive": "false"}
+    ]
+}

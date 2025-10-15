@@ -1,0 +1,5 @@
+<mat-toolbar>
+    <span class="user-column">{{email()}} @if(email()){<span (click)="logout()" style="cursor: pointer;">(logout)</span>}</span> <!-- TODO account menu -->
+    <span class="title-column">{{title()}}</span>
+    <span class="version-column">{{version()}}</span>
+</mat-toolbar>

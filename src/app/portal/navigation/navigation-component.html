@@ -1,0 +1,29 @@
+<mat-sidenav-container>
+    <mat-sidenav #nav position="start" mode="side">
+        <mat-nav-list> <!-- TODO get apps from metadata-->
+            <mat-list-item [activated]="false">
+                <mat-icon matListItemIcon>build</mat-icon>
+                Hardware Builder
+            </mat-list-item>
+            <mat-list-item [activated]="false">
+                <mat-icon matListItemIcon>room</mat-icon>
+                Asset Manager
+            </mat-list-item>
+            <mat-list-item [activated]="false">
+                <mat-icon matListItemIcon>pending_actions</mat-icon>
+                Ticket Tracker
+            </mat-list-item>
+            <mat-list-item [activated]="false">
+                <mat-icon matListItemIcon>new_label</mat-icon>
+                Tagalong
+            </mat-list-item>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <button type="button" (click)="nav.toggle()">
+            @if(nav.opened) {<span><=</span>}
+            @else {<span>=></span>}
+        </button>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
