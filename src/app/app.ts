@@ -1,5 +1,6 @@
-import { Component, HostListener, OnInit, signal } from '@angular/core';
-import { RouterOutlet } from "@angular/router";
+import { Component, HostListener, inject, OnInit, signal } from '@angular/core';
+import { Router, RouterOutlet } from "@angular/router";
+import { UserProfileService } from './services/user-profile-service';
 
 @Component({
   selector: 'app-root',
@@ -7,9 +8,14 @@ import { RouterOutlet } from "@angular/router";
   imports: [RouterOutlet]
 })
 export class App implements OnInit {
+  readonly userProfileService = inject(UserProfileService)
+  readonly router = inject(Router);
+
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (!this.userProfileService.isLoggedIn) this.router.navigate(['']);
+  }
 
   @HostListener('window:beforeunload', ['$event'])
   onClose(event: BeforeUnloadEvent) {

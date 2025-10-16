@@ -1,8 +1,6 @@
-<app-header [email]="userProfileService.email" [title]="title" [version]="versionInfo"></app-header>
+<app-header id="header" (openAccountDetails)="openAccountDetails()" [email]="userProfileService.email" [title]="title" [version]="versionInfo"></app-header>
 
-@if (userProfileService.isLoggedIn) {
-    <app-navigation></app-navigation>
-}
-@else {
+@if (!userProfileService.isLoggedIn) {
     <app-login></app-login>
 }
+<app-navigation [hidden]="!userProfileService.isLoggedIn"></app-navigation>

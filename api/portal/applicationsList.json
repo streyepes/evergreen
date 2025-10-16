@@ -1,0 +1,8 @@
+{
+    "applications": [
+        {"id": 1, "name": "Hardware Builder", "icon": "build", "tooltip": "", "route":"hardware-builder"},
+        {"id": 2, "name": "Asset Manager", "icon": "room", "tooltip": "", "route":"asset-manager"},
+        {"id": 3, "name": "Ticket Tracker", "icon": "pending_actions", "tooltip": "", "route":"ticket-tracker"},
+        {"id": 4, "name": "Tagalong", "icon": "new_label", "tooltip": "", "route":"tagalong"}
+    ]
+}
